@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import FaceRecognition from './Components/FaceRecognition/FaceRecognition'
 import Navigation from './Components/Navigation/Navigation'
 import Signin from './Components/Signin/Signin'
+import Register from './Components/Register/Register'
 import Logo from './Components/Logo/Logo'
 import ImageLinkForm from './Components/ImageLinkForm/ImageLinkForm'
 import Rank from './Components/Rank/Rank'
@@ -73,9 +74,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Navigation onRouteChange={this.onRouteChange} />
-                {this.state.route === 'signin' ? (
-                    <Signin onRouteChange={this.onRouteChange} />
-                ) : (
+                {this.state.route === 'home' ? (
                     <div>
                         <Logo />
                         <Rank />
@@ -85,6 +84,10 @@ class App extends Component {
                         />
                         <FaceRecognition />
                     </div>
+                ) : this.state.route === 'signin' ? (
+                    <Signin onRouteChange={this.onRouteChange} />
+                ) : (
+                    <Register onRouteChange={this.onRouteChange} />
                 )}
             </div>
         )
